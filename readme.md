@@ -4,7 +4,7 @@
 
 ### Installation
 
-`$ npm installation`
+`$ npm install`
 
 ### Compiling JS, CSS (in ./public/assets/) and autoreload:
 
