@@ -8,8 +8,9 @@
 
 ### Compiling JS, CSS (in ./public/assets/) and autoreload:
 
-`$ gulp front (task file located in ./gulp-tasks)`
+`$ gulp front`
 
+default local server adress : localhost:3000
 Gulp task file : ./gulp-tasks/front.js
 
 ### Dev
@@ -22,7 +23,7 @@ Gulp task file : ./gulp-tasks/front.js
 
 `./public/index.html`
 
-`./public/print.html
+`./public/print.html`
 
 ### Project
 
