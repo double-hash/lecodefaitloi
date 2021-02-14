@@ -1495,7 +1495,6 @@ body {
     margin-top: -0.2em;
     margin-bottom: 14pt; }
   .main .text h2 {
-    text-transform: uppercase;
     font-size: 24pt;
     line-height: 1.2em; }
   .main section:not(.half-title).first {
