@@ -1,0 +1,245 @@
+/*------------------------------------*\
+  print style
+\*------------------------------------*/
+@media print {
+
+
+/**** variable qui nous permet de connaitre la hauteur de lâ€™empagement, la â€œpage areaâ€  */
+/**** utilise les propriÃ©tÃ©s personnalisÃ©es CSS gÃ©nÃ©rÃ©es par paged.js  */
+.pagedjs_page {
+    --pagedjs-pagearea-height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) );
+}
+@page {
+    /**** Format du document imprimé : A5  */
+    size: 148mm 210mm;
+    margin:0;
+    /**** Marges hautes (blanc de tete) et basses (blanc de pied) pour toutes les pages  */
+}
+@page text {
+    margin-bottom: 2cm;
+    margin-top: 1.5cm;
+}
+@page text:left {
+    /**** Pages de gauche & petit fond = 30px / grand fond = 90px  */
+    margin-right: 1.5cm;
+    margin-left: 2cm;
+}
+@page text:right {
+    /**** Pages de gauche & petit fond = 30px / grand fond = 90px  */
+    margin-right: 2cm;
+    margin-left: 1.5cm;
+}
+@page half-title {
+    margin-bottom: 2cm !important;
+    margin-top: 1.5cm !important;
+}
+@page half-title:right {
+    margin-right: 2cm;
+    margin-left: 1.5cm;
+}
+@page half-title:left {
+    margin-right: 1.5cm;
+    margin-left: 2cm;
+}
+
+/**** établir des marges provoque la création de 'margin-boxes'  */
+.pagedjs_pagebox > * {
+    /**** Décommenter la ligne ci-dessous pour les visualiser */
+    /* outline: 1px solid red;  */
+}
+
+body {
+    font-family: Georgia, Times, Times New Roman, serif;
+    font-size: 12pt;
+    line-height: 14pt;
+    color: #000000;
+}
+
+
+.header {
+    page: couverture; /**** affecte Ã  la <section class="cover-1"> le gabarit de page â€œcouvertureâ€*/
+}
+
+@page couverture {
+    /* background-color: var(--background);
+    margin: 30px; */
+}
+
+.half-title {
+    break-before: right;
+    padding:0;
+    page: half-title;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: var(--pagedjs-pagearea-height);  
+}
+.half-title header h2 {
+    font-weight: 500;
+    padding:0;
+    margin:0;
+    background:none;
+    color: black;
+    font-size:24pt;
+    line-height: 28pt;
+    margin: 0;
+    font-weight: 400;
+    margin-bottom:14pt;
+}
+.half-title p {
+    text-indent: 0 !important;
+}
+
+.colophon {
+    font-size:8pt;
+    line-height: 1.2em;
+    max-width: 50ch;
+}
+
+.colophon a {display: inline;word-break: break-all; border:none;}
+.colophon p {
+    display:inline;
+}
+
+.main section {
+    padding:0;
+}
+
+.main .text:not(.half-title) h2 {
+    break-before: page;
+    padding:0;
+    margin:0;
+    background:none;
+    margin-top: -0.2em;
+    margin-bottom: 14pt;
+}
+
+.main section:not(.half-title) .first {
+    padding-top:50%;
+    break-before:right;
+}
+.main section:not(.half-title) h2 {
+    string-set: chaptertitle content(text);
+}
+.main p {
+    text-indent:1.5cm;
+    letter-spacing: -0.03em;
+    padding:0;
+    margin:0;
+}
+.main .illustration {
+    position:static;
+    break-before:left;
+    width:100%;
+    height:100%;
+}
+
+.main .intertitre{
+    width:100%;
+    height:100%;
+    margin:0;
+} 
+.main .intertitre img {
+    top:0;
+    left:0;
+    width:151mm;
+    height:216mm;
+    object-fit: contain;
+    object-position: top;
+    z-index: 2;
+    padding:0;
+    margin:0;
+}
+.main .intertitre h2 {
+    position: absolute;
+    background:none;
+    font-size:50pt;
+    line-height: 1em;
+    color:white;
+    font-weight: 500;
+    padding:0;
+    margin:0;
+    margin-top:50%;
+    margin-left: 1cm;
+}
+
+.intertitre--left {
+    page: intertitre-left;
+    break-before: left;
+}
+.intertitre--right {
+    page: intertitre-right;
+    break-before: right;
+}
+@page intertitre-left :left {
+    margin:-3mm !important;
+}
+@page intertitre-right:right {
+    margin:-3mm !important;
+}
+
+
+.text {
+    page: text; /**** affecte Ã  la <section class="text">  le gabarit de page text */
+    padding: 0;
+    font-size: 14px;
+}
+
+#booktitle { 
+    display: none;
+    /**** un paragraphe, id="booktitle", permet de dÃ©finir un titre courant */
+    /**** lâ€™utilisation de position: running(identifiant), donne la possibilitÃ© dâ€™utiliser â€œidentifiantâ€ dans une margin-box */
+    position: running(booktitle); 
+}
+
+.pagedjs_margin-content { 
+    white-space: nowrap; /**** permet au contenu des margin-box de rester sur une seule ligne */
+    font-size: .85em;
+    font-family: "JB Mono", sans-serif;
+}
+
+@page text:left {
+    @bottom-left {
+    content: counter(page);
+    }
+    /* running header (book title)  */
+    @bottom-right {
+        content: element(booktitle);
+    }
+}
+@page text:right {
+    @bottom-right {
+    content: counter(page);
+    }
+    /* running header (book title)  */
+    @bottom-left {
+    content: string(chaptertitle);
+    }
+}
+
+/* .cover-4 {
+    padding:0 !important;
+    break-before:left;
+} */
+p {
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    page-break-after: avoid;
+}
+.header,
+.footer,
+.section.print {
+    display: none !important;
+}
+body {
+    background: #fff !important;
+    color: #000;
+}
+
+  
+}
