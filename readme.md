@@ -1,6 +1,6 @@
 ## Le code fait loi
 
-3D (printable) book virtual objectboilerplate (paged.js, threeJS, gulp)
+3D (printable) book boilerplate with paged.js, threeJS. (NPM, gulp, browserify for developpement)
 
 ### Installation
 
