@@ -1,0 +1,87 @@
+.header {
+    @extend %container;
+    text-align:right;
+    background: linear-gradient(transparent, var(--bg-color) 60%, var(--bg-color) 80%, transparent);
+    background: linear-gradient( transparent 25%,rgba(32, 25, 25, 0.7) 50%, $body-color 80%);
+    background-size: 100% 66%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    position:relative;
+    box-sizing: border-box;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+    padding-bottom:10vh;
+    margin: 0 auto;
+}
+.three {
+    .header {
+        background-image: linear-gradient(transparent 25%,rgba(32, 25, 25, 0.6) 50%, rgba(32, 25, 25, 0.8) 80%);
+    }
+}
+
+.subtitle {
+    margin-top:1.2rem;
+}
+
+.cover-infos {
+    @extend .ts-body;
+    margin:1.2rem 0 0 0;
+    /* text-align: left; */
+}
+
+@media screen and (max-width:1249px) {
+    .header{
+        overflow-x: hidden;
+        height:100vh;
+        /* min-height:100vh; */
+        background-color: rgba(32, 25, 25, 0.0);
+        /* padding:75vh 0 0 0; */
+        background-image: linear-gradient(rgba(32, 25, 25, 0.0),rgba(32, 25, 25, 0.9) 60%, rgba(32, 25, 25, 1) 90%);
+        padding-bottom:5vh;
+
+    }
+    .three {
+        .header {
+            background-image: linear-gradient(rgba(32, 25, 25, 0.0),rgba(32, 25, 25, 0.6) 60%, rgba(32, 25, 25, 0.8) 90%);
+        }
+    }
+    .title {
+        font-size:16vw;
+    }
+    .cover-infos {
+        margin-left: $grid-gutter-width;
+    }
+}
+@media screen and (min-width:1249px) {
+    .title {
+        font-size:10rem;
+        padding-left:10%;
+    }
+    .header::after {
+        content:'';
+        position: absolute;
+        // z-index: -1;
+        bottom:-200px;
+        height:200px;
+        width:100%;
+        background: linear-gradient($body-color 50%, transparent);
+        background-repeat: no-repeat;
+    }
+    .three {
+        .header::after {
+            display: none;
+        }
+    }
+    
+    .subtitle {
+        background:linear-gradient(-90deg, $alt-color 40%, transparent 70%);
+        padding: auto calc(10% + 20px);
+        padding-right: 20px;
+    }
+    .cover-infos {
+        margin-right: $grid-gutter-width;
+    }
+}

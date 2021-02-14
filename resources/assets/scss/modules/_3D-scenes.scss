@@ -1,0 +1,21 @@
+#scene-container { 
+    background: $body-color;
+    position: fixed;
+    display:none;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+// .three .book {
+//     max-height: 1080px;
+//     max-width: 1920px;
+// }
+
+#scene, #scene-content {
+    top:0;
+    left:0;
+    width: 100vw;
+    height:100vh;
+}

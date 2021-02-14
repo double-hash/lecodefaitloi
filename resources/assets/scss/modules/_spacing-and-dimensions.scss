@@ -1,0 +1,115 @@
+.classic .content {
+    @extend %container;
+}
+
+//TODO : Use & adjust variables in _variables.scss
+@media screen {
+    .main {
+        box-sizing: border-box;
+        margin: 0 auto;
+        width:100%;
+        overflow: hidden;
+        padding-bottom:100vh;
+    }
+    
+    .subtitle {
+        padding: 0.6em $grid-gutter-width;
+    }
+    
+    .main section{
+        padding-top:50px;
+        padding-bottom:100px;
+    }
+    
+    .main figure {
+        width:100%;
+        margin: calc(#{$grid-gutter-width} * 2) auto;
+        text-align: center;
+    }
+    
+    .main figure figcaption {
+        margin-top:0.4rem;
+    }
+    
+    .main figure img {
+        max-height:400px;
+        max-width:100%;
+    }
+    
+    .ending {
+        margin-top: 1.4rem;
+    }
+}
+
+@media screen and (max-width:1249px) {
+    .main figure {
+        max-width: 60ch;
+    }
+    .main figure img {
+        margin: 0 auto;
+    }
+    .main figure figcaption {
+        padding:0 $grid-gutter-width;
+    }
+    .main p {
+        padding:0 $grid-gutter-width;
+        max-width: 70ch;
+        margin: 0 auto;
+        margin-top:1.2rem;
+    }
+    .main h2 {
+        padding: 50px $grid-gutter-width 40px;
+    }    
+    .main section {
+        padding-top:1.2rem;
+        padding-bottom:3.6rem;
+    }
+}
+
+
+@media screen and (min-width:1250px) {
+    .content {
+        position: relative;
+        margin: 0 auto;
+    }
+    .main h2 {
+        padding:50px 50% 40px calc(5% + 20px);
+        margin-left: calc(0px - #{$grid-gutter-width});
+    }
+    .main p {
+        display: block;
+        box-sizing: border-box;
+        padding-left:10%;  
+        padding-right:5%;    
+    }
+    .main figure {
+        display: block;
+        position: absolute;
+        right:10%;
+        transform:translateY(-100%);
+        box-sizing: border-box;
+        max-width: 30%;
+        width:auto;
+    }
+    .main .fig--alt {
+        transform:translateY(0);
+    }
+    .main figure img {
+        object-fit: contain;
+        object-position: left;
+    }
+    .main figure figcaption {
+        box-sizing: border-box;
+        position: absolute;
+        right:0;
+        width: 100%;
+        margin: 0 0 auto auto;
+        padding: 0.6rem;
+    }
+    section {
+        max-width: calc(80ch + 15%);
+    }
+    section:first-of-type p:first-child {
+        padding-top:3vw;
+    }
+}

@@ -1,0 +1,162 @@
+.three {max-height:100vh;}
+
+.three .interface .actions .btn--three {
+    display: none;
+}
+
+.three #main {
+    display: none;
+}
+
+.three #scene-container {
+    display: block;
+}
+
+.three .book{
+    // background:red;
+    // color:white;
+    width:100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    // position: absolute;
+    // transform: translate(-50%, -50%);
+}
+
+.classic {
+    background: $body-color;
+}
+
+.classic #scene-container {
+    display:none !important;
+}
+.classic .interface .actions .btn--classic {
+    display:none !important;
+}
+.classic .interface .actions .btn--back {
+    display:none !important;
+}
+.classic .interface .actions .btn--read {
+    display:none !important;
+}
+
+.classic .actions {
+    opacity: 0.2;
+}
+
+.interface {
+    @extend .ts-btn;
+    position:fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    pointer-events: none;
+    z-index: 50;
+    height:100%;
+    width:100%;
+    max-height:100vh;
+    top:0;
+    // font-family: "Ferrite";
+    // // text-transform: uppercase;
+    // font-weight: 500;
+    // font-size:2rem;
+    color: $alt-color;
+    .actions {
+        opacity: 0.3 ;
+        transition:opacity .5s ease-in;
+        display: flex;
+        justify-content: space-around;
+        box-sizing: border-box;
+        padding: 10px 10px 20px;
+        position: absolute;
+        right:2%;
+        // transform:translateX(-50%);
+        bottom:$grid-gutter-width;
+        // background:var(--bg-color);
+        // width:30vw;
+        text-align: right;
+        &:hover{
+            opacity: 1 ;
+            transition-timing-function: ease-out;
+        }
+        .btn {
+            border: 3px solid red;
+            margin-top:-3px;
+            // background:black;
+            box-sizing: border-box;
+            pointer-events: all;
+            cursor:pointer;
+            display: block;
+            padding: 0.6em 1.2em;
+            // border: 3px solid $alt-color;
+            background:black;
+            &:hover {
+                background:$alt-color;
+                color:black;
+            }
+            &.btn--menu {
+                display:none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:799px) { 
+    .interface {
+        .actions { 
+            opacity: 1;
+            justify-content: flex-end;
+            box-sizing: border-box;
+            flex-direction: column-reverse;
+            left:50%;
+            bottom:$grid-gutter-width;
+            width:calc(45%);
+            transform:translate(-50%,0%);
+            padding:0;
+            overflow: hidden;
+            padding-left:3px;
+            padding-top:3px;
+            &.menu--open{
+                .menu {
+                    transform: translateY(0%);
+                    transition-timing-function: ease-in;
+                }
+                .btn--menu {
+                    background: $alt-color !important;
+                    color: $black !important;
+                }
+            }
+            .menu {
+                z-index: -1;
+                // position: absolute;
+                width: calc(100%);
+                height:auto;
+                transition: all 0.3s;
+                transform: translateY(100%);
+                transition-timing-function: ease-out;
+            }
+            .btn {
+                // margin-left:0px;
+                background:black;
+                flex:1;
+                text-align: center;
+                font-size:1rem;
+                // margin-top:8px;
+                user-select: none;
+                margin-left:-3px;
+                // max-width: calc(33.33% + 2px);
+                &:hover {
+                    color: $alt-color;
+                    background:black;
+                }
+                &.btn--menu {
+                    display:block;
+                }
+            }
+        }
+    }
+    .classic .interface {
+        // .btn--three {
+        //     display:none;
+        // }
+    }
+}

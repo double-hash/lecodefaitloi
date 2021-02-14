@@ -1,0 +1,36 @@
+/* font declaration */
+
+@font-face {
+    font-family: "Ferrite";
+    font-weight: 700;
+    src:url("./fonts/ferritecoredx-display.woff") format('woff'),
+        url("./fonts/ferritecoredx-display.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: "Ferrite";
+    font-weight: 500;
+    src:url("./fonts/ferritecoredx-medium.woff") format('woff'),
+        url("./fonts/ferritecoredx-medium.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: "Ferrite";
+    font-weight: 400;
+    src:url("./fonts/ferritecoredx-regular.woff") format('woff'),
+        url("./fonts/ferritecoredx-regular.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: "JB Mono";
+    font-weight: 400;
+    src:url("./fonts/JetBrainsMono-Light.woff") format('woff'),
+        url("./fonts/JetBrainsMono-Light.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: "JB Mono";
+    font-weight: 500;
+    src:url("./fonts/JetBrainsMono-Bold.woff") format('woff'),
+        url("./fonts/JetBrainsMono-Bold.woff2") format('woff2');
+}

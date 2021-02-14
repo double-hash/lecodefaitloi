@@ -1,0 +1,146 @@
+
+@keyframes bgAnim {
+    0% {
+        background-position-y: 30%;
+    }
+    100% {
+        background-position-y: 100%;
+    }
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 30%;
+        border-radius: 100%;
+    }
+    50% {
+        border-radius: 40%;
+    }
+    100% {
+        opacity: 100%;
+        border-radius: 100%;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        width: 12%;
+        height:12%;
+    }
+    50% {
+        border-radius: 0%;
+    }
+    75%{
+        border-radius: 50%;
+    }
+    100%{
+        width:8%;
+        height:8%;
+        border-radius: 0%;
+    }
+}
+
+@keyframes flicker2 {
+    0% {
+        box-shadow: #FF0000 0 0 10vw;
+        border-color: $base-color;
+        background:transparent;
+        transform:scale(1);
+    }
+    33% {
+        background:transparent;
+    }
+    100% {
+        box-shadow: #00FFFF 0 0 0px;
+        border-color: #00FFFF;
+        background: $body-color;
+        transform:scale(2);
+        // background:rgba(0,255,255,1);
+    }
+}
+
+@keyframes bgRadialAnim {
+    0% {
+        background-size: 80%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+
+@keyframes bgMove {
+    0% {
+        left: 15%;
+    }
+    100% {
+        left: 40%;
+    }
+}
+@keyframes bgMoveAlt {
+    0% {
+        left: 30%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+
+@keyframes move {
+    0% { 
+        left:20%;
+        transform:scaleX(1);
+    }
+    100% {
+        left:80%;
+        transform:scaleX(2);
+    }
+}
+@keyframes move2 {
+    0% { 
+        top:40%;
+        left:-20%;
+    }
+    100% { 
+        top:120%;
+            left:80%;
+    }
+}
+
+@keyframes move3 {
+    0% { 
+        top:-50%;
+        left:-50%;
+    }
+    100% {
+        top:80%;
+        left:150%;
+    }
+}
+
+@keyframes move4 {
+    0% { 
+        top:30%;
+        left:70%;
+    }
+    40% {
+        top:80%;
+        left:40%;
+    }
+    60% {
+        top:60%;
+        left:20%;
+    }
+    100% {
+        top:10%;
+        left:60%;
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0.95) translate(-50%,-50%);
+    }
+    100% {
+        transform: scale(1.10) translate(-50%,-50%);
+    }
+}

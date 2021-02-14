@@ -1,0 +1,27 @@
+/*------------------------------------*\
+  misc
+\*------------------------------------*/
+
+
+.hidden {
+    display: none !important;
+  }
+  
+  .hidden-small {
+    @include media("<sm") {
+      display: none !important;
+    }
+  }
+  .hidden-large {
+    @include media(">=sm") {
+      display: none !important;
+    }
+  }
+  
+  .nav__list {
+    list-style: none;
+  }
+  
+  .clear {
+    @include clearfix;
+  }

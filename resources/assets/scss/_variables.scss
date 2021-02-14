@@ -1,0 +1,124 @@
+/*------------------------------------*\
+  #COLORS
+\*------------------------------------*/
+
+// Main colour palette
+$white            : #CCCCCC;
+$black            : #201919;
+$red              : #FF0000;
+$gray             : #888888;
+
+// Assign colours to variable roles
+$body-color       : $black;
+$base-color       : $white;
+$alt-color        : $red;
+// $action-response  : $gray;
+
+
+
+/*------------------------------------*\
+  #BREAKPOINTS
+\*------------------------------------*/
+
+$breakpoints: (
+  xs  : 320px,
+  sm  : 768px,
+  md  : 1024px,
+  lg  : 1280px,
+  xl  : 1440px,
+  xxl : 1920px
+);
+
+$grid-gutter-width: 20px !default;
+
+
+
+/*------------------------------------*\
+  #FONTS
+\*------------------------------------*/
+
+%font-title {
+  font-family: "Ferrite";
+  font-weight: 700;
+}
+
+%font-subtitle {
+  font-family: "Ferrite";
+}
+
+%font-body {
+  font-family: "JB Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+%font-body-italic {
+  font-family: "JB Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-style: italic;
+}
+
+%font-body-bold {
+  font-family: "JB Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 700;
+}
+
+%font-body-bold-italic {
+  font-family: "JB Mono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-style: italic;
+  font-weight: 700;
+}
+
+
+
+
+/*------------------------------------*\
+    #TYPESIZE/SCALE
+\*------------------------------------*/
+
+$font-base         : 1em;
+$line-height       : 1.4;
+$line-height-var   : 0.8em;
+
+$font-size-sm      : $font-base * 0.778; // 14
+$font-size-md      : $font-base * 1.000; // 18
+$font-size-lg      : $font-base * 1.222; // 22
+$font-size-xl      : $font-base * 4; // 28
+
+%font-size-sm {
+  font-size: $font-size-sm;
+  line-height: $line-height;
+}
+%font-size-md {
+  font-size: $font-size-md;
+  line-height: $line-height;
+}
+%font-size-lg {
+  font-size: $font-size-lg;
+  line-height: $line-height-var;
+}
+%font-size-xl {
+  font-size: $font-size-xl;
+  line-height: $line-height-var;
+}
+
+
+
+/*------------------------------------*\
+  #SPACING
+\*------------------------------------*/
+
+$spacing-base     : 1rem;
+
+
+$spacing-xl       : $spacing-base * 3.333; // 60
+$spacing-lg       : $spacing-base * 2.222; // 40
+$spacing-md       : $spacing-base * 1.667; // 30
+$spacing-sm       : $spacing-base * 1.111; // 20
+$spacing-xs       : $spacing-base * 0.556; // 10
+
+
+
+/*------------------------------------*\
+  #BORDERS WIDTH
+\*------------------------------------*/
+
+$border-width-sm         : 1px;
+$border-width-md         : $border-width-sm*3;

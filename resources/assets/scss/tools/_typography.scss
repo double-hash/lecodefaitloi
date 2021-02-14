@@ -1,0 +1,47 @@
+/*------------------------------------*\
+  text-styles
+\*------------------------------------*/
+
+
+.ts-title {
+  @extend %font-size-xl;
+  @extend %font-title;
+  color: $alt-color;
+  // font-family: "Ferrite", sans-serif;
+  // font-size:min(16vw,1000%);
+  line-height: 0.8em;
+}
+.ts-subtitle {
+  @extend %font-size-lg;
+  @extend %font-subtitle;
+  background: $alt-color;
+  color:$body-color;
+}
+.ts-body {
+  @extend %font-size-md;
+  @extend %font-body;
+}
+.ts-small {
+  @extend %font-size-sm;
+  @extend %font-body;
+}
+.ts-label {
+  @extend %font-size-sm;
+  @extend %font-body;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+.ts-btn {
+  @extend %font-size-md;
+  @extend %font-subtitle;
+  font-weight: 500;
+}
+.ts-link {
+  color: $alt-color;
+  text-decoration: none;
+  border-bottom: 1px solid $alt-color;
+  &:hover {
+    color: $alt-color;
+    text-decoration: none;
+  }
+}

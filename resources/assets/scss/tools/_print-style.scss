@@ -1,0 +1,332 @@
+/*------------------------------------*\
+  print style
+\*------------------------------------*/
+
+
+@mixin print-style {
+  
+    /**** variable qui nous permet de connaitre la hauteur de lâ€™empagement, la â€œpage areaâ€  */
+    /**** utilise les propriÃ©tÃ©s personnalisÃ©es CSS gÃ©nÃ©rÃ©es par paged.js  */
+    .pagedjs_page {
+      --pagedjs-pagearea-height: calc(var(--pagedjs-height) - var(--pagedjs-margin-top) - var(--pagedjs-margin-bottom) );
+    }
+    @page {
+      /**** Format du document imprimé : A5  */
+      size: 148mm 210mm;
+      margin:0;
+      /**** Marges hautes (blanc de tete) et basses (blanc de pied) pour toutes les pages  */
+    }
+    @page text {
+      margin-bottom: 2cm;
+      margin-top: 1.5cm;
+    }
+    @page text:left {
+      /**** Pages de gauche & petit fond = 30px / grand fond = 90px  */
+      margin-right: 1.5cm;
+      margin-left: 2cm;
+    }
+    @page text:right {
+      /**** Pages de gauche & petit fond = 30px / grand fond = 90px  */
+      margin-right: 2cm;
+      margin-left: 1.5cm;
+    }
+    @page half-title {
+      margin-bottom: 2cm !important;
+      margin-top: 1.5cm !important;
+      &:right {
+        margin-right: 2cm;
+        margin-left: 1.5cm;
+      }
+      &:left {
+        margin-right: 1.5cm;
+        margin-left: 2cm;
+      }
+    }
+
+    /**** établir des marges provoque la création de 'margin-boxes'  */
+    .pagedjs_pagebox > * {
+      /**** Décommenter la ligne ci-dessous pour les visualiser */
+        // outline: 1px solid red; 
+    }
+  
+    body {
+      font-family: Georgia, Times, Times New Roman, serif;
+      font-size: 12pt;
+      line-height: 14pt;
+      color: #000000;
+    }
+  
+
+    .half-title {
+      break-before: right;
+      padding:0;
+      page: half-title;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      // align-items: flex-start;
+      height: var(--pagedjs-pagearea-height);  
+      header h2 {
+        font-weight: 500;
+        padding:0;
+        margin:0;
+        background:none;
+        color: $black;
+        font-size:24pt;
+        line-height: 28pt;
+        // break;
+        margin: 0;
+        font-weight: 400;
+        margin-bottom:14pt;
+      }
+      p {
+        text-indent: 0 !important;
+      }
+    }
+
+    .colophon {
+      font-size:8pt;
+      line-height: 1.2em;
+      max-width: 50ch;
+      a {display: inline;word-break: break-all; border:none;}
+      p {
+        display:inline;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .main section {
+      padding:0;
+    }
+
+    .main .text:not(.half-title) h2 {
+      break-before: page;
+      padding:0;
+      margin:0;
+      background:none;
+      // font-weight:500;
+      margin-top: -0.2em;
+      margin-bottom: 14pt;
+    }
+
+    .main .text h2 {
+      text-transform: uppercase;
+      font-size:24pt;
+      line-height: 1.2em;
+    }
+    
+    .main section:not(.half-title) {
+      &.first {
+        padding-top:50%;
+        break-before:right;
+      }
+      h2 {
+        string-set: chaptertitle content(text);
+      }
+    }
+    .main p {
+      text-indent:1.5cm;
+      letter-spacing: -0.03em;
+      padding:0;
+      margin:0;
+    }
+    .main .illustration {
+      position:static;
+      break-before:left;
+      width:100%;
+      height:100%;
+    }
+
+    .main .intertitre{
+      width:100%;
+      height:100%;
+      margin:0;
+      img {
+        // position: absolute;
+        top:0;
+        left:0;
+        width:151mm;
+        height:216mm;
+        object-fit: contain;
+        object-position: top;
+        z-index: 2;
+        padding:0;
+        margin:0;
+      }
+      h2 {
+        position: absolute;
+        background:none;
+        font-size:50pt;
+        line-height: 1em;
+        color:white;
+        font-weight: 500;
+        padding:0;
+        margin:0;
+        margin-top:50%;
+        margin-left: 1cm;
+      }
+    } 
+
+    .intertitre--left {
+      page: intertitre-left;
+      break-before: left;
+      // img {
+      //   page: intertitre-left;
+      //   break-before: left;
+      // }
+    }
+    .intertitre--right {
+      page: intertitre-right;
+      break-before: right;
+    }
+    @page intertitre-left {
+      // background-color: $alt-color;
+      // margin: 30px;
+      // margin:0 !important;
+      // margin-top:0 !important;
+      &:left {
+        margin:-3mm !important;
+        // position:relative
+      };
+    }
+    @page intertitre-right {
+      // background-color: $alt-color;
+      // margin: 30px;
+      // margin:0 !important;
+      // margin-top:0 !important;
+      &:right {
+        margin:-3mm !important;
+        // position:relative
+      };
+    }
+    
+
+    .text {
+      page: text; /**** affecte Ã  la <section class="text">  le gabarit de page text */
+      padding: 0;
+      font-size: 14px;
+    }
+
+    #booktitle { 
+      display: none;
+      /**** un paragraphe, id="booktitle", permet de dÃ©finir un titre courant */
+      /**** lâ€™utilisation de position: running(identifiant), donne la possibilitÃ© dâ€™utiliser â€œidentifiantâ€ dans une margin-box */
+      position: running(booktitle); 
+    }
+    
+    .pagedjs_margin-content { 
+      white-space: nowrap; /**** permet au contenu des margin-box de rester sur une seule ligne */
+      // text-transform: uppercase;
+      font-size: .85em;
+      font-family: "JB Mono", sans-serif;
+    }
+    
+    @page text:left {
+      @bottom-left {
+        content: counter(page);
+      }
+      /* running header (book title)  */
+      @bottom-right {
+          content: element(booktitle);
+      }
+    }
+    @page text:right {
+      @bottom-right {
+        content: counter(page);
+      }
+      /* running header (book title)  */
+      @bottom-left {
+        content: string(chaptertitle);
+      }
+    }
+    
+    .cover-1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      background: $body-color;
+      background: linear-gradient($body-color, $alt-color 200% );
+      padding:0 !important;
+      height: var(--pagedjs-pagearea-height);  
+      // page: couv; /**** affecte Ã  la <section class="cover-1"> le gabarit de page â€œcouvertureâ€*/
+      .title {
+        max-width:75%;
+        font-size:93pt;
+        line-height: 0.9em;
+        margin-top:2.5cm;
+        padding-left: 1cm;
+      }
+      .cover-details {
+        padding-bottom:2cm;
+        font-size:16pt;
+      }
+      .subtitle {
+        text-indent:0;
+        text-align: left;
+        padding-left: 1cm;
+        padding-top:0.3em;
+        padding-bottom:0.3em;
+        // font-weight:500;
+        background:red;
+      }
+      .author {
+        color:red;
+        text-indent:0;
+        margin-top:0.5cm;
+        padding-left:1cm;
+        background:none;
+        display: block;
+      }
+    }
+
+    @page couv {
+      background: $body-color;
+      background: linear-gradient($body-color, $alt-color 200% );
+      margin: 3cm;
+    }
+    .cover-4 {
+      padding:0 !important;
+      height: var(--pagedjs-pagearea-height);  
+      break-before:left;
+      page: couv;
+      position:relative;
+      .qrcode {
+        display: block;
+        margin:auto;
+        width: 100%;
+        position: absolute;
+        bottom:0;
+        text-align: center;
+        border:none;
+        color:white;
+        font-family: "JB Mono", sans-serif;
+        padding:0.5cm 0;
+        img {
+          width:50%;
+          margin:auto;
+        }
+      }
+    }
+    p {
+      // page-break-inside: avoid;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6{
+      page-break-after: avoid;
+    }
+    .header,
+    .footer,
+    .section.print {
+      display: none !important;
+    }
+    body {
+      background: #fff !important;
+      color: #000;
+    }
+  }

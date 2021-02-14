@@ -1,0 +1,104 @@
+.title {
+    @extend .ts-title;
+}
+.subtitle,
+.main h2 { 
+    @extend .ts-subtitle;
+}
+
+/* typographic styles */
+a,
+a:link,
+a:visited, 
+a:focus,
+a:hover,
+a:active {
+    @extend .ts-link;
+}
+
+figcaption,
+.main p,
+.cover-infos {
+    @extend .ts-body;
+}
+
+.main b {
+    font-weight: 500;
+}
+
+.main h2 {
+    font-weight: 400;
+    line-height: 1.3;
+    font-size:2.3rem;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+.main p {
+    line-height: 1.5em;
+}
+
+.intro, 
+.ending {
+    font-style: italic;
+}
+
+@media screen {
+    .classic {
+        section {
+            background-color: $body-color;
+        }
+    }
+    .three {
+        section {
+            background-color: rgba(32, 25, 25, 0.8);
+        }
+    }
+}
+
+@media screen and (max-width:1249px) {
+    body {
+        overflow-x: hidden;
+    }
+    .main p{
+        // background-color: $body-color;
+    }
+    .cover-infos {
+        font-size: 0.8rem;
+    }
+    .subtitle {
+        font-size:1em;
+    }
+    .main h2 { 
+        font-size:1.6em;
+    }
+}
+
+@media screen and (min-width:1250px) {
+    body {
+        font-size:18px; 
+    }
+    .content {
+        position: relative;
+    }
+    .main h2 {
+        background:linear-gradient(90deg, $alt-color 40%, transparent 70%);
+        background-repeat: no-repeat;
+    }
+    .main p {
+        display: block;
+        font-size:1em;
+        text-indent: 100px;
+        line-height: 1.5em;
+    }
+    .main p:first-of-type {
+        text-indent:0;
+    }
+    .main figure {
+        text-align: center;
+    }
+    .main figure figcaption {
+        display: block;
+        background: $body-color;
+    }
+}

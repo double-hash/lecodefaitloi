@@ -1,0 +1,33 @@
+/*------------------------------------*\
+  global styles
+\*------------------------------------*/
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .footer {
+      margin-top: auto;
+    }
+  }
+  
+  %container {
+    width: 100%;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  %content-max-width {
+    width: 100%;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .index,
+  .detail {
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    border-bottom: $border-width-sm solid $base-color;
+  }
